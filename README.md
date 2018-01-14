@@ -6,4 +6,56 @@
     <br>
 </p>
 
-<p>Documentation in proccess...</p>
+This is the <a href="https://www.iviewui.com/" target="_blank">IView</a> UI extension based on <a href="https://vuejs.org/" target="_blank">Vue.js</a> for Yii2.
+It allows you to use the components of the IView library in your application.
+
+Documentation:
+* [Russian](docs/ru/README.md)
+* [English](docs/en/README.md)
+
+# Installation
+
+The preferred way to install this extension is through composer.
+
+Run
+
+```bash
+php composer.phar require antkaz/yii2-iview
+```
+
+or add
+
+```
+"antkaz/yii2-iview": "*"
+```
+
+to the **require** section of your `composer.json` file.
+
+## Usage
+
+After installing the extension, just use it in your code:
+
+```php
+<?php
+
+use \antkaz\iview\IView;
+?>
+<div class="iview">
+    <?php IView::begin([
+        'clientOptions' => [
+            'data' => [
+                'visible' => false
+            ],
+            'methods' => [
+                'show' => new \yii\web\JsExpression('function() {this.visible = true;}')
+            ]
+        ]
+    ]); ?>
+        <i-button @click="show">Click me!</i-button>
+        <Modal v-model="visible" title="Welcome">Welcome to iView</Modal>
+    
+    <?php IView::end() ?>
+</div>
+```
+
+The above example displays a button. Clicking this button opens a modal window.
