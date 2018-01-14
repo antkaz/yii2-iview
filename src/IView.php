@@ -16,12 +16,12 @@ use antkaz\iview\assets\IViewAsset;
 use antkaz\iview\assets\IViewLanguageAsset;
 
 /**
- * Class Widget
+ * Class IVIew
  *
  * @author Anton Kazarinov <askazarinov@gmail.com>
  * @package antkaz\iview
  */
-class Widget extends yii\base\Widget
+class IView extends yii\base\Widget
 {
     /**
      * @var array The HTML tag attributes for the widget container tag
