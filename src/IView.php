@@ -13,10 +13,29 @@ use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\web\View;
 use antkaz\iview\assets\IViewAsset;
-use antkaz\iview\assets\IViewLanguageAsset;
 
 /**
- * Class IVIew
+ * Render an IView components
+ *
+ * For example,
+ *
+ * ```php
+ * echo IView::begin([
+ *     'clientOptions' => [
+ *         'data' => [
+ *             'visible' => false
+ *         ],
+ *         'methods' => [
+ *             'show' => new \yii\web\JsExpression('function() {this.visible = true;}')
+ *         ]
+ *     ]
+ * ]); ?>
+ *
+ * <i-button @click="show">Click me!</i-button>
+ * <Modal v-model="visible" title="Welcome">Welcome to iView</Modal>
+ *
+ * <?php IView::end() ?>
+ * ```
  *
  * @author Anton Kazarinov <askazarinov@gmail.com>
  * @package antkaz\iview
@@ -89,12 +108,10 @@ class IView extends yii\base\Widget
 
         $language = empty($this->language) ? Yii::$app->language : $this->language;
 
-        $iviewLanguage = IViewLanguageAsset::register($view);
-        $iviewLanguage->language = $language;
+        $iview = IViewAsset::register($view);
+        $iview->language = $language;
 
-        $view->registerAssetBundle(IViewAsset::className(), View::POS_HEAD);
         $view->registerJs("iview.lang('" . $language . "')", View::POS_HEAD);
-        $iviewLanguage->registerAssetFiles($view);
     }
 
     /**
@@ -109,7 +126,4 @@ class IView extends yii\base\Widget
         $js = "var app = new Vue({$options});";
         $this->getView()->registerJs($js, View::POS_END);
     }
-
-
-
 }

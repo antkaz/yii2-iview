@@ -26,7 +26,7 @@ php composer.phar require antkaz/yii2-iview
 or add
 
 ```
-"antkaz/yii2-iview": "*"
+"antkaz/yii2-iview": "dev-master"
 ```
 
 to the **require** section of your `composer.json` file.

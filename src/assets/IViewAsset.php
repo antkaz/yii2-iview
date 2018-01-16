@@ -8,7 +8,9 @@
 namespace antkaz\iview\assets;
 
 
+use yii;
 use yii\web\AssetBundle;
+use yii\web\View;
 
 /**
  * Class IViewAsset
@@ -39,7 +41,13 @@ class IViewAsset extends AssetBundle
      */
     public $js = [
         YII_ENV_DEV ? 'iview.js' : 'iview.min.js',
+    ];
 
+    /**
+     * @inheritdoc
+     */
+    public $jsOptions = [
+        'position' => View::POS_HEAD,
     ];
 
     /**
@@ -48,4 +56,43 @@ class IViewAsset extends AssetBundle
     public $depends = [
         'antkaz\iview\assets\VueAsset',
     ];
+
+    /**
+     * @var string The locale ID ('en-US', 'en-GB') for the language to be used by the iview.
+     * If this property is empty, then the current application language will be used.
+     */
+    public $language;
+
+    /**
+     * @inheritdoc
+     */
+    public function init()
+    {
+        parent::init();
+
+        $this->registerLanguage(Yii::$app->language);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function registerAssetFiles($view)
+    {
+        $language = $this->language ? $this->language : Yii::$app->language;
+        $this->registerLanguage($language);
+
+        parent::registerAssetFiles($view);
+    }
+
+    /**
+     * Registers a language file if it exist
+     *
+     * @param string $language The locale ID
+     */
+    private function registerLanguage($language)
+    {
+        if (file_exists(Yii::getAlias($this->sourcePath . "/locale/{$language}.js"))) {
+            $this->js[] = "locale/{$language}.js";
+        }
+    }
 }
