@@ -1,4 +1,4 @@
-# Меню
+# Menu
 
 Renders navigation menu for web pages. [Examples and API](https://www.iviewui.com/components/menu-en)
 
