@@ -4,7 +4,7 @@ Renders navigation menu for web pages. [Examples and API](https://www.iviewui.co
 
 ## Options
 
- * **items** *(array)* - List of items in the menu component. 
+ * `items` *(array)* - List of items in the menu component. 
 Each array element represents a single menu item which can be either a string or an array with the following structure: 
 который может быть либо строкой, либо массивом со следующей структурой:
     * `name` *(string)* - unique identifier of menu-item (required);
