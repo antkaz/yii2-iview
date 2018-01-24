@@ -24,12 +24,12 @@ class Menu extends Widget
     use IViewTrait;
 
     /**
-     * Horizontal head navigation menu. (Default)
+     * Vertical head navigation menu. (Default)
      */
     const MODE_VERTICAL = 'vertical';
 
     /**
-     * Vertical navigation menu
+     * Horizontal navigation menu
      */
     const MODE_HORIZONTAL = 'horizontal';
 
@@ -63,6 +63,7 @@ class Menu extends Widget
      * - active: bool, optional, whether the item should be on active state or not.
      * - encode: bool, optional, whether the label will be HTML-encoded.
      *   If set, supersedes the $encodeLabels option for only this item.
+     * - items: array, optional, list of the intems in the sub-menu.
      *
      * If a menu item is a string, it will be rendered directly without HTML encoding.
      */
@@ -84,7 +85,7 @@ class Menu extends Widget
     public $openNames;
 
     /**
-     * @var bool accordion
+     * @var bool Enable accordion mode or not. If true, only one Submenu can be expanded at the same time.
      */
     public $accordion = false;
 
