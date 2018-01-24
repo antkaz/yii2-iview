@@ -67,20 +67,21 @@ trait IViewTrait
     {
         parent::init();
 
-        if (!isset($this->options['id'])) {
-            $this->options['id'] = $this->getId();
-        }
-
         $this->initOptions();
+        $this->initComponentProps();
         $this->initEvents();
         $this->registerJs();
     }
 
     /**
-     * Initializes the IView component properties
+     * Initializes the HTML tag attributes for the widget container tag
      */
-    protected function initOptions()
-    {}
+    public function initOptions()
+    {
+        if (!isset($this->options['id'])) {
+            $this->options['id'] = $this->getId();
+        }
+    }
 
     /**
      * Initializes the IView component events
@@ -139,4 +140,10 @@ trait IViewTrait
         $js .= "new {$id}().\$mount('#{$id}')";
         $this->getView()->registerJs($js, View  ::POS_END);
     }
+
+    /**
+     * Initializes the IView component properties
+     */
+    protected function initComponentProps()
+    {}
 }
