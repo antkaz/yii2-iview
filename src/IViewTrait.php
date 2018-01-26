@@ -15,7 +15,7 @@ use yii\base\InvalidConfigException;
 use yii\web\JsExpression;
 
 /**
- * IViewTrait contains basic properties and methods that use all the IView components
+ * IViewTrait contains basic properties and methods that use all the IView components.
  *
  * @author Anton Kazarinov <askazarinov@gmail.com>
  * @package antkaz\iview
@@ -23,26 +23,26 @@ use yii\web\JsExpression;
 trait IViewTrait
 {
     /**
-     * @var array The HTML tag attributes for the widget container tag
+     * @var array The HTML tag attributes for the widget container tag.
      *
      * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
      */
     public $options;
 
     /**
-     * @var array The IView component properties
+     * @var array The IView component properties.
      */
     public $componentProps;
 
     /**
      * @var array The options for the Vue.
      *
-     * @see https://vuejs.org/v2/api/#Options-Data for informations about the supported options
+     * @see https://vuejs.org/v2/api/#Options-Data for informations about the supported options.
      */
     public $vueOptions;
 
     /**
-     * @var array The Iview component events
+     * @var array The Iview component events.
      */
     public $iViewEvents;
 
@@ -74,7 +74,7 @@ trait IViewTrait
     }
 
     /**
-     * Initializes the HTML tag attributes for the widget container tag
+     * Initializes the HTML tag attributes for the widget container tag.
      */
     public function initOptions()
     {
@@ -84,7 +84,13 @@ trait IViewTrait
     }
 
     /**
-     * Initializes the IView component events
+     * Initializes the IView component properties.
+     */
+    protected function initComponentProps()
+    {}
+
+    /**
+     * Initializes the IView component events.
      */
     protected function initEvents()
     {
@@ -105,7 +111,7 @@ trait IViewTrait
     }
 
     /**
-     * Registers a specific asset bundles
+     * Registers a specific asset bundles.
      */
     protected function registerJs()
     {
@@ -114,7 +120,7 @@ trait IViewTrait
     }
 
     /**
-     * Registers a specific the IView library asset bundle, initializes language
+     * Registers a specific the IView library asset bundle, initializes language.
      */
     private function registerIVIew()
     {
@@ -129,9 +135,9 @@ trait IViewTrait
     }
 
     /**
-     * Registers a specific VueJS framework asset bundle
+     * Registers a specific VueJS framework asset bundle.
      *
-     * @param string $id The ID of the widget container tag
+     * @param string $id The ID of the widget container tag.
      */
     private function registerVue($id)
     {
@@ -140,10 +146,4 @@ trait IViewTrait
         $js .= "new {$id}().\$mount('#{$id}')";
         $this->getView()->registerJs($js, View  ::POS_END);
     }
-
-    /**
-     * Initializes the IView component properties
-     */
-    protected function initComponentProps()
-    {}
 }

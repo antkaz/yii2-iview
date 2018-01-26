@@ -12,7 +12,7 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 
 /**
- * Class Menu renders a Menu IView component
+ * Class Menu renders a Menu IView component.
  *
  * @see https://www.iviewui.com/components/menu-en
  *
@@ -21,31 +21,17 @@ use yii\helpers\Html;
  */
 class Menu extends Widget
 {
-    use IViewTrait;
-
     /**
-     * Vertical head navigation menu. (Default)
+     * Menu modes.
      */
     const MODE_VERTICAL = 'vertical';
-
-    /**
-     * Horizontal navigation menu
-     */
     const MODE_HORIZONTAL = 'horizontal';
 
     /**
-     * Dark theme
+     * Menu Themes.
      */
     const THEME_DARK = 'dark';
-
-    /**
-     * Light Theme. (default)
-     */
     const THEME_LIGHT = 'light';
-
-    /**
-     * Primary theme. Can only be used when mode="horizontal"
-     */
     const THEME_PRIMARY = 'primary';
 
     /**
@@ -58,12 +44,12 @@ class Menu extends Widget
      *
      * Each array element represents a single menu item which can be either a string
      * or an array with the following structure:
-     * - name: string, required, unique identifier of menu-item.
-     * - label: string, required, the menu item label.
-     * - active: bool, optional, whether the item should be on active state or not.
+     * - name: string, required, unique identifier of menu-item;
+     * - label: string, required, the menu item label;
+     * - active: bool, optional, whether the item should be on active state or not;
      * - encode: bool, optional, whether the label will be HTML-encoded.
-     *   If set, supersedes the $encodeLabels option for only this item.
-     * - items: array, optional, list of the intems in the sub-menu.
+     *   If set, supersedes the $encodeLabels option for only this item;
+     * - items: array, optional, list of items in the submenu.
      *
      * If a menu item is a string, it will be rendered directly without HTML encoding.
      */
@@ -96,11 +82,13 @@ class Menu extends Widget
     public $width = '240px';
 
     /**
-     * @var bool Whether the nav items labels should be HTML-encoded
+     * @var bool Whether the nav items labels should be HTML-encoded.
      */
     public $encodeLabel = true;
 
     /**
+     * Renders Menu component.
+     *
      * @return string
      */
     public function run()
@@ -110,7 +98,7 @@ class Menu extends Widget
     }
 
     /**
-     * Initializes the IView component properties
+     * Initializes the IView component properties.
      *
      * @throws InvalidConfigException
      */
@@ -138,10 +126,10 @@ class Menu extends Widget
     }
 
     /**
-     * Renders menu items
+     * Renders menu items.
      *
-     * @param array $items List of items in the menu component
-     * @return string The rendering result
+     * @param array $items List of items in the menu component.
+     * @return string The rendering result.
      * @throws InvalidConfigException
      */
     protected function renderItems($items = [])
@@ -167,10 +155,10 @@ class Menu extends Widget
     }
 
     /**
-     * Renders the submenu items
+     * Renders the submenu items.
      *
-     * @param $item menu item containing submenu items
-     * @return string The rendering result
+     * @param $item menu item containing submenu items.
+     * @return string The rendering result.
      */
     protected function renderSubmenu($item)
     {
@@ -185,11 +173,11 @@ class Menu extends Widget
     }
 
     /**
-     * Renders menu item
+     * Renders menu item.
      *
-     * @param $item Menu item
-     * @param bool $slot Renders menu item as slot
-     * @return string The rendering result
+     * @param $item Menu item.
+     * @param bool $slot Renders menu item as slot.
+     * @return string The rendering result.
      * @throws InvalidConfigException
      */
     protected function renderItem($item, $slot = false)

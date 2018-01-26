@@ -8,7 +8,6 @@
 namespace antkaz\iview;
 
 use yii\helpers\Html;
-use yii\base\Widget as YiiWidget;
 
 /**
  * Render an IView components
@@ -36,10 +35,8 @@ use yii\base\Widget as YiiWidget;
  * @author Anton Kazarinov <askazarinov@gmail.com>
  * @package antkaz\iview
  */
-class IView extends YiiWidget
+class IView extends Widget
 {
-    use IViewTrait;
-
     /**
      * @inheritdoc
      */
@@ -47,10 +44,7 @@ class IView extends YiiWidget
     {
         parent::init();
 
-        if (!isset($this->options['id'])) {
-            $this->options['id'] = $this->getId();
-        }
-
+        $this->initOptions();
         $this->registerJs();
 
         ob_start();
