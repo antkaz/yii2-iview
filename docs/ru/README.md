@@ -10,4 +10,5 @@
 
 ## Компоненты
 
-* [Меню](menu.md)
+* [Button](button.md)
+* [Menu](menu.md)

@@ -10,4 +10,5 @@ It allows you to use the components of the IView library in your application.
 
 ## Components
 
+* [Button](button.md)
 * [Menu](menu.md)
