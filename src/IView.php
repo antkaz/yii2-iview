@@ -40,26 +40,25 @@ class IView extends Widget
     /**
      * @inheritdoc
      */
-    public function init()
+    protected function initBuffering()
     {
-        parent::init();
-
-        $this->initOptions();
-        $this->registerJs();
-
         ob_start();
         ob_implicit_flush(false);
     }
 
     /**
-     * @inheritdoc
+     * Renderes a IVIew components
+     *
+     * @return string IView components
      */
     public function run()
     {
         $content = ob_get_clean();
 
-        echo Html::beginTag('div', $this->options);
-        echo $content;
-        echo Html::endTag('div');
+        $iview = Html::beginTag('div', $this->options);
+        $iview .= $content;
+        $iview .= Html::endTag('div');
+
+        return $iview;
     }
 }
