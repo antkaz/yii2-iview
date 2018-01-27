@@ -27,24 +27,24 @@ trait IViewTrait
      *
      * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
      */
-    public $options;
+    public $options = [];
 
     /**
      * @var array The IView component properties.
      */
-    public $componentProps;
+    public $componentProps = [];
 
     /**
      * @var array The options for the Vue.
      *
      * @see https://vuejs.org/v2/api/#Options-Data for informations about the supported options.
      */
-    public $vueOptions;
+    public $vueOptions = [];
 
     /**
      * @var array The Iview component events.
      */
-    public $iViewEvents;
+    public $iViewEvents = [];
 
     /**
      * @var string The language configuration (e.g. 'fr-FR', 'zh-CN').
@@ -71,6 +71,7 @@ trait IViewTrait
         $this->initComponentProps();
         $this->initEvents();
         $this->registerJs();
+        $this->initBuffering();
     }
 
     /**
@@ -122,7 +123,7 @@ trait IViewTrait
     /**
      * Registers a specific the IView library asset bundle, initializes language.
      */
-    private function registerIVIew()
+    protected function registerIVIew()
     {
         $view = $this->getView();
 
@@ -139,11 +140,17 @@ trait IViewTrait
      *
      * @param string $id The ID of the widget container tag.
      */
-    private function registerVue($id)
+    protected function registerVue($id)
     {
         $options = Json::htmlEncode($this->vueOptions);
         $js = "var {$id} = Vue.extend({$options});" . PHP_EOL;
         $js .= "new {$id}().\$mount('#{$id}')";
         $this->getView()->registerJs($js, View  ::POS_END);
     }
+
+    /**
+     * Turn on output buffering
+     */
+    protected function initBuffering()
+    {}
 }
