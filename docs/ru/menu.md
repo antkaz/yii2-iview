@@ -35,7 +35,7 @@
 
 use antkaz\iview\Menu;
 ?>
-<div class="site-index">
+<div class="iview-menu">
 
     <?= Menu::widget([
         'items' => $data,

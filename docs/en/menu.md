@@ -1,6 +1,6 @@
 # Menu
 
-Renders navigation menu for web pages. [Examples and API](https://www.iviewui.com/components/menu-en)
+Renders navigation menu for web pages. [Demo and API](https://www.iviewui.com/components/menu-en)
 
 ## Options
 
@@ -36,7 +36,7 @@ We recommend you to set it to `auto` if you're using layouts like `Col`
 
 use antkaz\iview\Menu;
 ?>
-<div class="site-index">
+<div class="iview-menu">
 
     <?= Menu::widget([
         'items' => $data,
