@@ -11,4 +11,5 @@
 ## Компоненты
 
 * [Button](button.md)
+* [Alert](alert.md)
 * [Menu](menu.md)
