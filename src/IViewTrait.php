@@ -100,7 +100,7 @@ trait IViewTrait
         }
 
         if (!is_array($this->iViewEvents)) {
-            throw new InvalidConfigException("The 'clientEvents' option are not an array");
+            throw new InvalidConfigException("The 'iViewEvent' option are not an array");
         }
 
         foreach ($this->iViewEvents as $eventName => $handler) {
