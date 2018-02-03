@@ -76,8 +76,12 @@ class Alert extends Widget
      *
      * @return string
      */
-    public function run()
+    protected function renderWidget()
     {
+        if ($this->content) {
+            $this->body .= $this->content;
+        }
+
         return $this->renderAlert();
     }
 

@@ -9,6 +9,7 @@ namespace antkaz\iview;
 
 use yii;
 use antkaz\iview\assets\IViewAsset;
+use yii\base\InvalidParamException;
 use yii\helpers\Json;
 use yii\web\View;
 use yii\base\InvalidConfigException;
@@ -62,22 +63,32 @@ trait IViewTrait
      * This method will initializes the properties and events of the iview component.
      * After will be registered the Iview asset bundle.
      * If you override this method, make sure you call the parent implementation first.
+     *
+     * @throws InvalidConfigException
+     * @throws InvalidParamException
      */
     public function init()
     {
         parent::init();
 
+        $this->initBuffering();
         $this->initOptions();
         $this->initComponentProps();
         $this->initEvents();
         $this->registerJs();
-        $this->initBuffering();
+    }
+
+    /**
+     * Turn on output buffering
+     */
+    protected function initBuffering()
+    {
     }
 
     /**
      * Initializes the HTML tag attributes for the widget container tag.
      */
-    public function initOptions()
+    protected function initOptions()
     {
         if (!isset($this->options['id'])) {
             $this->options['id'] = $this->getId();
@@ -88,10 +99,13 @@ trait IViewTrait
      * Initializes the IView component properties.
      */
     protected function initComponentProps()
-    {}
+    {
+    }
 
     /**
      * Initializes the IView component events.
+     *
+     * @throws InvalidConfigException
      */
     protected function initEvents()
     {
@@ -113,6 +127,8 @@ trait IViewTrait
 
     /**
      * Registers a specific asset bundles.
+     *
+     * @throws InvalidParamException
      */
     protected function registerJs()
     {
@@ -139,6 +155,7 @@ trait IViewTrait
      * Registers a specific VueJS framework asset bundle.
      *
      * @param string $id The ID of the widget container tag.
+     * @throws InvalidParamException
      */
     protected function registerVue($id)
     {
@@ -147,10 +164,4 @@ trait IViewTrait
         $js .= "new {$id}().\$mount('#{$id}')";
         $this->getView()->registerJs($js, View  ::POS_END);
     }
-
-    /**
-     * Turn on output buffering
-     */
-    protected function initBuffering()
-    {}
 }

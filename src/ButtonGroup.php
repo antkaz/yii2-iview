@@ -48,32 +48,6 @@ class ButtonGroup extends Widget
     public $vertical = false;
 
     /**
-     * Renderes a buttons group
-     *
-     * @return string Buttons group
-     */
-    public function run()
-    {
-        $content = ob_get_clean();
-        $options = ArrayHelper::merge($this->options, $this->componentProps);
-
-        $buttonGroup = Html::beginTag('button-group', $options);
-        $buttonGroup .= $content;
-        $buttonGroup .= Html::endTag('button-group');
-
-        return $buttonGroup;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    protected function initBuffering()
-    {
-        ob_start();
-        ob_implicit_flush(false);
-    }
-
-    /**
      * @inheritdoc
      */
     protected function initComponentProps()
@@ -89,5 +63,12 @@ class ButtonGroup extends Widget
         if ($this->vertical) {
             $this->componentProps['vertical'] = true;
         }
+    }
+
+    protected function renderWidget()
+    {
+        $options = ArrayHelper::merge($this->options, $this->componentProps);
+
+        return Html::tag('button-group', $this->content, $options);
     }
 }

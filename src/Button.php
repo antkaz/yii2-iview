@@ -105,21 +105,11 @@ class Button extends Widget
     public $icon;
 
     /**
-     * Renders button
-     *
-     * @return string
-     */
-    public function run()
-    {
-        return $this->renderButton();
-    }
-
-    /**
      * Prepares text and options and rendered button
      *
      * @return string
      */
-    protected function renderButton()
+    protected function renderWidget()
     {
         $text = $this->labelEncode ? Html::encode($this->label) : $this->label;
         $options = ArrayHelper::merge($this->options, $this->componentProps);

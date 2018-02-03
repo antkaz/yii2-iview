@@ -87,17 +87,6 @@ class Menu extends Widget
     public $encodeLabel = true;
 
     /**
-     * Renders Menu component.
-     *
-     * @return string
-     */
-    public function run()
-    {
-        $menu = $this->renderItems($this->items);
-        return Html::tag('div', $menu, $this->options);
-    }
-
-    /**
      * Initializes the IView component properties.
      *
      * @throws InvalidConfigException
@@ -123,6 +112,17 @@ class Menu extends Widget
         if (!empty($this->openNames) && is_array($this->openNames)) {
             $this->componentProps['open-names'] = $this->openNames;
         }
+    }
+
+    /**
+     * Renders Menu component.
+     *
+     * @return string
+     */
+    protected function renderWidget()
+    {
+        $menu = $this->renderItems($this->items);
+        return Html::tag('div', $menu, $this->options);
     }
 
     /**

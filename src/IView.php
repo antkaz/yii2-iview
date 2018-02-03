@@ -38,27 +38,12 @@ use yii\helpers\Html;
 class IView extends Widget
 {
     /**
-     * @inheritdoc
-     */
-    protected function initBuffering()
-    {
-        ob_start();
-        ob_implicit_flush(false);
-    }
-
-    /**
      * Renderes a IVIew components
      *
      * @return string IView components
      */
-    public function run()
+    protected function renderWidget()
     {
-        $content = ob_get_clean();
-
-        $iview = Html::beginTag('div', $this->options);
-        $iview .= $content;
-        $iview .= Html::endTag('div');
-
-        return $iview;
+        return Html::tag('div', $this->content, $this->options);
     }
 }
