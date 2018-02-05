@@ -70,7 +70,7 @@ class Button extends Widget
     /**
      * @var string Button size，options include `large`, `small`, `default`. Default `default`.
      */
-    public $size = self::SIZE_DEFAULT;
+    public $size;
 
     /**
      * @var string Button shape, options include `circle`.
@@ -98,7 +98,7 @@ class Button extends Widget
     public $loading = false;
 
     /**
-     * @var Set the icons used in the button
+     * @var string Set the icons used in the button
      *
      * @see https://www.iviewui.com/components/icon-en
      */
