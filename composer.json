@@ -23,6 +23,9 @@
     "npm-asset/iview": "^2.8.0",
     "npm-asset/vue": "^2.5.13"
   },
+  "require-dev": {
+    "phpunit/phpunit": "^5"
+  },
   "autoload": {
     "psr-4": {
       "antkaz\\iview\\": "src"
