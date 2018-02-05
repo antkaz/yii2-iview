@@ -57,9 +57,9 @@ class Button extends Widget
     public $label;
 
     /**
-     * @var bool Whether the button label should be HTML-encoded. Default true.
+     * @var bool Whether the button label should be HTML-encoded. Default false.
      */
-    public $labelEncode = true;
+    public $encodeLabel = false;
 
     /**
      * @var string Button type, options include
@@ -111,7 +111,7 @@ class Button extends Widget
      */
     protected function renderWidget()
     {
-        $text = $this->labelEncode ? Html::encode($this->label) : $this->label;
+        $text = $this->encodeLabel ? Html::encode($this->label) : $this->label;
         $options = ArrayHelper::merge($this->options, $this->componentProps);
 
         return Html::tag('i-button', $text, $options);
