@@ -43,46 +43,64 @@ class ButtonTest extends TestCase
                 [
                     'label' => 'Primary',
                     'type' => Button::TYPE_PRIMARY,
+                    'options' => [
+                        'id' => 'btn'
+                    ]
                 ],
-                '<i-button type="primary" id="w0">Primary</i-button>'
+                '<i-button type="primary" id="btn">Primary</i-button>'
             ],
             'Icons & Shapes' => [
                 [
                     'label' => 'Icons & Shapes',
                     'shape' => Button::SHAPE_CIRCLE,
-                    'icon' => 'ios-search'
+                    'icon' => 'ios-search',
+                    'options' => [
+                        'id' => 'btn'
+                    ]
                 ],
-                '<i-button id="w1" shape="circle" icon="ios-search">Icons & Shapes</i-button>'
+                '<i-button id="btn" shape="circle" icon="ios-search">Icons & Shapes</i-button>'
             ],
             'Size' => [
                 [
                     'label' => 'Size',
-                    'size' => Button::SIZE_LARGE
+                    'size' => Button::SIZE_LARGE,
+                    'options' => [
+                        'id' => 'btn'
+                    ]
                 ],
-                '<i-button id="w2" size="large">Size</i-button>'
+                '<i-button id="btn" size="large">Size</i-button>'
             ],
             'Long Button' => [
                 [
                     'label' => 'Long Button',
-                    'long' => true
+                    'long' => true,
+                    'options' => [
+                        'id' => 'btn'
+                    ]
                 ],
-                '<i-button id="w3" long>Long Button</i-button>'
+                '<i-button id="btn" long>Long Button</i-button>'
             ],
             'Loading & Disabled' => [
                 [
                     'label' => 'Loading & Disabled',
                     'loading' => true,
-                    'disabled' => true
+                    'disabled' => true,
+                    'options' => [
+                        'id' => 'btn'
+                    ]
                 ],
-                '<i-button id="w4" disabled loading>Loading & Disabled</i-button>'
+                '<i-button id="btn" disabled loading>Loading & Disabled</i-button>'
             ],
             'htmlType & encodeLabel' => [
                 [
                     'label' => '<b>Encode</b>',
                     'encodeLabel' => true,
-                    'htmlType' => Button::HTML_TYPE_SUBMIT
+                    'htmlType' => Button::HTML_TYPE_SUBMIT,
+                    'options' => [
+                        'id' => 'btn'
+                    ]
                 ],
-                '<i-button id="w5" html-type="submit">&lt;b&gt;Encode&lt;/b&gt;</i-button>'
+                '<i-button id="btn" html-type="submit">&lt;b&gt;Encode&lt;/b&gt;</i-button>'
             ]
         ];
     }
