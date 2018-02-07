@@ -6,6 +6,11 @@
     <br>
 </p>
 
+[![License](https://poser.pugx.org/antkaz/yii2-iview/license)](https://packagist.org/packages/antkaz/yii2-iview)
+[![Build Status](https://travis-ci.org/antkaz/yii2-iview.svg?branch=master)](https://travis-ci.org/antkaz/yii2-iview)
+[![Maintainability](https://api.codeclimate.com/v1/badges/4580f2099eb2a0ca50b1/maintainability)](https://codeclimate.com/github/antkaz/yii2-iview/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/4580f2099eb2a0ca50b1/test_coverage)](https://codeclimate.com/github/antkaz/yii2-iview/test_coverage)
+
 This is the <a href="https://www.iviewui.com/" target="_blank">IView</a> UI extension based on <a href="https://vuejs.org/" target="_blank">Vue.js</a> for Yii2.
 It allows you to use the components of the IView library in your application.
 
