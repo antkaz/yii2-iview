@@ -21,8 +21,8 @@ class ButtonGroupTest extends TestCase
     /**
      * @dataProvider dataProvider
      *
-     * @param $config
-     * @param $expected
+     * @param array $config
+     * @param string $expected
      */
     public function testButtonGroupOptions($config, $expected)
     {

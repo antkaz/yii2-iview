@@ -21,8 +21,8 @@ class ButtonTest extends TestCase
     /**
      * @dataProvider dataProvider
      *
-     * @param $config Button widget configs.
-     * @param $expected Expected HTML code.
+     * @param array $config Button widget configs.
+     * @param string $expected Expected HTML code.
      */
     public function testButtonOptions($config, $expected)
     {
