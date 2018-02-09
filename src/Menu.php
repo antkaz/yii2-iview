@@ -35,11 +35,6 @@ class Menu extends Widget
     const THEME_PRIMARY = 'primary';
 
     /**
-     * @var string|int The name of the menu item that is active.
-     */
-    private $activeName;
-
-    /**
      * @var array List of items in the menu component.
      *
      * Each array element represents a single menu item which can be either a string
@@ -56,14 +51,15 @@ class Menu extends Widget
     public $items;
 
     /**
-     * @var string The mode of the menu. Optional: horizontal, vertical.
+     * @var string The mode of the menu. Optional: `horizontal`, `vertical`. Default `vertical`.
      */
-    public $mode = self::MODE_VERTICAL;
+    public $mode;
 
     /**
-     * @var string Theme. Optional: light, dark, primary. Primary can only be used when mode="horizontal".
+     * @var string Theme. Optional: `light`, `dark`, `primary`.
+     * Primary can only be used when mode="horizontal". Default `light`.
      */
-    public $theme = self::THEME_LIGHT;
+    public $theme;
 
     /**
      * @var array The array of expanded Submenu's name.
@@ -71,20 +67,26 @@ class Menu extends Widget
     public $openNames;
 
     /**
-     * @var bool Enable accordion mode or not. If true, only one Submenu can be expanded at the same time.
+     * @var bool Enable accordion mode or not.
+     * If true, only one Submenu can be expanded at the same time. Default false.
      */
-    public $accordion = false;
+    public $accordion;
 
     /**
      * @var string The width of the navigation menu. It only works when mode="vertical".
-     * We recommend you to set it to auto if you're using layouts like Col.
+     * We recommend you to set it to auto if you're using layouts like Col. Default `240px`.
      */
-    public $width = '240px';
+    public $width;
 
     /**
      * @var bool Whether the nav items labels should be HTML-encoded.
      */
     public $encodeLabel = true;
+
+    /**
+     * @var string|int The name of the menu item that is active.
+     */
+    private $activeName;
 
     /**
      * Initializes the IView component properties.
@@ -93,25 +95,21 @@ class Menu extends Widget
      */
     protected function initComponentProps()
     {
-        if (!in_array($this->mode, [self::MODE_VERTICAL, self::MODE_HORIZONTAL])) {
-            throw new InvalidConfigException();
-        }
-
-        if (!in_array($this->theme, [self::THEME_LIGHT, self::THEME_DARK, self::THEME_PRIMARY])) {
-            throw new InvalidConfigException();
-        }
-
-        if ($this->theme == self::THEME_PRIMARY && $this->mode != self::MODE_HORIZONTAL) {
+        if (
+            $this->theme === self::THEME_PRIMARY
+            && $this->mode !== self::MODE_HORIZONTAL
+        ) {
             throw new InvalidConfigException('Primary theme can only be used when mode="horizontal"');
         }
 
-        $this->componentProps['mode'] = $this->mode;
-        $this->componentProps['theme'] = $this->theme;
-        $this->componentProps['accordion'] = $this->accordion;
-        $this->componentProps['width'] = $this->width;
-        if (!empty($this->openNames) && is_array($this->openNames)) {
+        if (is_array($this->openNames)) {
             $this->componentProps['open-names'] = $this->openNames;
         }
+
+        $this->componentProps['width'] = $this->width;
+        $this->componentProps['mode'] = $this->mode;
+        $this->componentProps['theme'] = $this->theme;
+        $this->componentProps['accordion'] = $this->accordion ? true : null;
     }
 
     /**
@@ -140,16 +138,14 @@ class Menu extends Widget
 
         $menuItems = [];
         foreach ($items as $key => $item) {
-            if (isset($item['items']) && is_array($item['items'])) {
+            if (isset($item['items'])) {
                 $menuItems[] = $this->renderSubmenu($item);
             } else {
                 $menuItems[] = $this->renderItem($item);
             }
         }
 
-        if ($this->activeName) {
-            $this->componentProps['active-name'] = $this->activeName;
-        }
+        $this->componentProps['active-name'] = $this->activeName ?: null;
 
         return Html::tag('i-menu', implode(PHP_EOL, $menuItems), $this->componentProps);
     }
@@ -159,9 +155,14 @@ class Menu extends Widget
      *
      * @param $item menu item containing submenu items.
      * @return string The rendering result.
+     * @throws InvalidConfigException
      */
     protected function renderSubmenu($item)
     {
+        if (!is_array($item['items'])) {
+            throw new InvalidConfigException("The 'items' option are not an array");
+        }
+
         $submenu = [];
 
         $submenu[] = $this->renderItem($item, true);

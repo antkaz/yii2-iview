@@ -80,7 +80,7 @@ class Button extends Widget
     /**
      * @var bool Set the width of the button to 100%. Default false.
      */
-    public $long = false;
+    public $long;
 
     /**
      * @var string Set the `button` raw `type`，options include `button`, `submit`, `reset`.
@@ -88,17 +88,17 @@ class Button extends Widget
     public $htmlType;
 
     /**
-     * @var bool Disable the button.
+     * @var bool Disable the button. Default false.
      */
-    public $disabled = false;
+    public $disabled;
 
     /**
-     * @var bool Set the button to loading status
+     * @var bool Set the button to loading status. Default false.
      */
-    public $loading = false;
+    public $loading;
 
     /**
-     * @var string Set the icons used in the button
+     * @var string Set the icons used in the button.
      *
      * @see https://www.iviewui.com/components/icon-en
      */
@@ -122,29 +122,13 @@ class Button extends Widget
      */
     protected function initComponentProps()
     {
-        if ($this->type) {
-            $this->componentProps['type'] = $this->type;
-        }
-        if ($this->size) {
-            $this->componentProps['size'] = $this->size;
-        }
-        if ($this->shape) {
-            $this->componentProps['shape'] = $this->shape;
-        }
-        if ($this->long) {
-            $this->componentProps['long'] = true;
-        }
-        if ($this->htmlType) {
-            $this->componentProps['html-type'] = $this->htmlType;
-        }
-        if ($this->disabled) {
-            $this->componentProps['disabled'] = true;
-        }
-        if ($this->loading) {
-            $this->componentProps['loading'] = true;
-        }
-        if ($this->icon) {
-            $this->componentProps['icon'] = $this->icon;
-        }
+        $this->componentProps['type'] = $this->type;
+        $this->componentProps['size'] = $this->size;
+        $this->componentProps['shape'] = $this->shape;
+        $this->componentProps['long'] = $this->long ? true : null;
+        $this->componentProps['html-type'] = $this->htmlType;
+        $this->componentProps['disabled'] = $this->disabled ? true : null;
+        $this->componentProps['loading'] = $this->loading ? true : null;
+        $this->componentProps['icon'] = $this->icon;
     }
 }
