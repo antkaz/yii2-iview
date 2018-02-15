@@ -28,7 +28,7 @@ class Card extends Widget
     /**
      * @var bool Show the border or not, recommend setting to true when background color is gray. Default true.
      */
-    public $bordered = true;
+    public $bordered;
 
     /**
      * @var bool Disable mouse hover shadow. Default false.
@@ -52,7 +52,7 @@ class Card extends Widget
 
     /**
      * @var array Card slot Extra:
-     * - tag: string, container tag name;
+     * - tag: string, container tag name. Default `p`;
      * - content: string, extra contents, shown at the right head corner by default;
      * - options: array, The HTML tag attributes for the extra container tag.
      */
