@@ -44,3 +44,20 @@ use antkaz\iview\Alert;
 
 </div>
 ```
+You can wrap content between calls `begin()` and `end()` as shown in the following example:
+
+```php
+<?php
+use antkaz\iview\Alert;
+?>
+<div class="iview-card">
+
+    <?php Alert::begin([
+        'type' => Alert::TYPE_SUCCESS,
+        'showIcon' => true,
+        'closable' => true,
+    ]) ?>
+        <p slot="title">Alert content</p>
+    <?php Aleert::end() ?>
+
+</div>

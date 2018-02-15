@@ -44,3 +44,23 @@ use antkaz\iview\Alert;
 
 </div>
 ```
+
+
+Вы можете обернуть содержимое между вызовами `begin()` и `end()`, как показано в следующем примере:
+
+```php
+<?php
+use antkaz\iview\Alert;
+?>
+<div class="iview-card">
+
+    <?php Alert::begin([
+        'type' => Alert::TYPE_SUCCESS,
+        'showIcon' => true,
+        'closable' => true,
+    ]) ?>
+        <p slot="title">Alert content</p>
+    <?php Aleert::end() ?>
+
+</div>
+```
