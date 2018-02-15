@@ -1,6 +1,6 @@
 # Card
 
-Этот виджет позволяет вывести компонент IView Card. [Demo and API](https://www.iviewui.com/components/card-en)
+Этот виджет позволяет вывести компонент IView Card. [Примеры и API](https://www.iviewui.com/components/card-en)
 
 ## Опции
 

@@ -1,6 +1,6 @@
 # Installation
 
-## Geeting package via<a href="http://getcomposer.org/download/" target="_blank">Composer</a>
+## Getting package via<a href="http://getcomposer.org/download/" target="_blank">Composer</a>
 
 Run
 

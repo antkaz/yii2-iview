@@ -1,6 +1,6 @@
 # Button
 
-This widget renderes the Iview button. [Demo and API](https://www.iviewui.com/components/button-en)
+This widget renders the IView button. [Demo and API](https://www.iviewui.com/components/button-en)
 
 ## Button
 

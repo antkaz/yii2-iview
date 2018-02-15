@@ -1,6 +1,6 @@
 # Alert
 
-Renders the Iview Alert. [Demo and API](https://www.iviewui.com/components/alert-en)
+Renders the IView Alert. [Demo and API](https://www.iviewui.com/components/alert-en)
 
 ## Options
 
@@ -12,7 +12,7 @@ Renders the Iview Alert. [Demo and API](https://www.iviewui.com/components/alert
     * `Alert::TYPE_ERRor` or `'error'`;
 * `showIcon` *(bool)* - show Icon or not. Default `false`;
 * `closable` *(bool)* - closable or not. Default `false`;
-* `slot` *(array)* - Aaert slot:
+* `slot` *(array)* - Alert slot:
     * `'icon'` *(string)* - customized icon content;
     * `'desc'` *(string)* - alert assistant text description;
     * `'close'` *(string)* - customized close content;

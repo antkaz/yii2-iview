@@ -1,6 +1,6 @@
 # Alert
 
-Позволяет вывести компонент предупреждения Iview. [Пример и API](https://www.iviewui.com/components/alert-en)
+Позволяет вывести компонент предупреждения IView. [Пример и API](https://www.iviewui.com/components/alert-en)
 
 ## Опции
 
