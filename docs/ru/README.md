@@ -13,4 +13,5 @@
 * [Button](button.md)
 * [Alert](alert.md)
 * [Card](card.md)
+* [Modal](modal.md)
 * [Menu](menu.md)
