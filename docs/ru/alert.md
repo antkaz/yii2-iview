@@ -16,16 +16,30 @@
     * `'icon'` *(string)* - задает пользовательскую икноку;
     * `'desc'` *(string)* - содержимое алерта. В этом случае тект алерта будет выступать в качестве заголовка;
     * `'close'` *(string)* - задает пользовательский текст для кнопки закрытия;
-* `iViewEvent` *(array)* - содержит список событий:
+* `events` *(array)* - содержит список событий:
     * `on-close` - возникает, когда алерт будет закрыт.
 
 ## Пример
 
 ```php
 <?php
+
 use antkaz\iview\Alert;
+use antkaz\iview\IViewAsset;
+use antkaz\vue\Vue;
+use yii\web\JsExpression;
+
+IViewAsset::register($this);
 ?>
+
 <div class="iview-alert">
+    <?php Vue::begin([
+        'clientOptions' => [
+            'methods' => [
+                'log' => new JsExpression("function() { console.log('Close alert') }")
+            ]
+        ]
+    ]) ?>
 
     <?= Alert::widget([
         'body' => 'Title',
@@ -37,11 +51,12 @@ use antkaz\iview\Alert;
             'desc' => 'Alert description',
             'close' => 'close'
         ],
-        'iViewEvents' => [
-            'on-close' => '(event) => {console.log(event);}'
-        ]
+        'events' => [
+           'on-close' => 'log'
+        ],
     ]) ?>
 
+    <?php Vue::end() ?>
 </div>
 ```
 
@@ -50,17 +65,28 @@ use antkaz\iview\Alert;
 
 ```php
 <?php
+
 use antkaz\iview\Alert;
+use antkaz\iview\IViewAsset;
+use antkaz\vue\Vue;
+
+IViewAsset::register($this);
 ?>
-<div class="iview-card">
+
+<div class="iview-alert">
+    <?php Vue::begin() ?>
 
     <?php Alert::begin([
         'type' => Alert::TYPE_SUCCESS,
         'showIcon' => true,
         'closable' => true,
     ]) ?>
-        <p slot="title">Alert content</p>
-    <?php Aleert::end() ?>
 
+    An info prompt
+    <template slot="desc">Content of prompt. Content of prompt. Content of prompt. Content of prompt.</template>
+
+    <?php Alert::end() ?>
+
+    <?php Vue::end() ?>
 </div>
 ```

@@ -46,7 +46,7 @@ class Card extends Widget
     public $padding;
 
     /**
-     * @var string Custoimzed card title.
+     * @var string Customized card title.
      */
     public $title;
 
@@ -61,14 +61,16 @@ class Card extends Widget
     /**
      * @inheritdoc
      */
-    protected function initComponentProps()
+    protected function initOptions()
     {
+        parent::initOptions();
+
         if ($this->bordered === false) {
-            $this->componentProps[':bordered'] = 'false';
+            $this->options[':bordered'] = 'false';
         }
-        $this->componentProps['dis-hover'] = $this->disHover ? true : false;
-        $this->componentProps['shadow'] = $this->shadow ? true : false;
-        $this->componentProps['padding'] = $this->padding ?: false;
+        $this->options['dis-hover'] = $this->disHover ? true : false;
+        $this->options['shadow'] = $this->shadow ? true : false;
+        $this->options['padding'] = $this->padding ?: false;
     }
 
     /**
@@ -109,8 +111,7 @@ class Card extends Widget
         }
 
         $body .= $this->body;
-        $options = ArrayHelper::merge($this->options, $this->componentProps);
 
-        return Html::tag('card', $body, $options);
+        return Html::tag('card', $body, $this->options);
     }
 }

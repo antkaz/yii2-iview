@@ -5,23 +5,29 @@ After installing the extension, just use it in your code:
 ```php
 <?php
 
-use \antkaz\iview\IView;
+use antkaz\iview\IViewAsset;
+use antkaz\vue\Vue;
 use \yii\web\JsExpression;
+
+IViewAsset::register($this);
 ?>
+
 <div class="iview">
-    <?php IView::begin([
-        'vueOptions' => [
-            'data' => new JsExpression('function() { return {visible: false};}'),
+    <?php Vue::begin([
+        'clientOptions' => [
+            'data' => [
+                'visible' => false
+            ],
             'methods' => [
                 'show' => new JsExpression('function() {this.visible = true;}')
             ]
         ]
-    ]); ?>
-    
+    ]) ?>
+
     <i-button @click="show">Click me!</i-button>
     <Modal v-model="visible" title="Welcome">Welcome to iView</Modal>
 
-    <?php IView::end() ?>
+    <?php Vue::end() ?>
 </div>
 ```
 

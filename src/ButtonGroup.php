@@ -7,7 +7,6 @@
 
 namespace antkaz\iview;
 
-use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 
 /**
@@ -50,25 +49,25 @@ class ButtonGroup extends Widget
     /**
      * @inheritdoc
      */
-    protected function initComponentProps()
+    protected function initOptions()
     {
+        parent::initOptions();
+
         if ($this->size) {
-            $this->componentProps['size'] = $this->size;
+            $this->options['size'] = $this->size;
         }
 
         if ($this->shape) {
-            $this->componentProps['shape'] = $this->shape;
+            $this->options['shape'] = $this->shape;
         }
 
         if ($this->vertical) {
-            $this->componentProps['vertical'] = true;
+            $this->options['vertical'] = true;
         }
     }
 
     protected function renderWidget()
     {
-        $options = ArrayHelper::merge($this->options, $this->componentProps);
-
-        return Html::tag('button-group', $this->content, $options);
+        return Html::tag('button-group', $this->content, $this->options);
     }
 }

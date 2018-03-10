@@ -54,12 +54,10 @@ class MenuTest extends TestCase
                         'id' => 'menu'
                     ]
                 ],
-                '<div id="menu">'
-                . '<i-menu>'
+                '<i-menu id="menu">'
                 . '<menu-item name="1">page-1</menu-item>'
                 . '<menu-item name="2">page-2</menu-item>'
                 . '</i-menu>'
-                . '</div>'
             ],
             'All options' => [
                 [
@@ -82,12 +80,10 @@ class MenuTest extends TestCase
                         'id' => 'menu'
                     ]
                 ],
-                '<div id="menu">'
-                . '<i-menu width="100" mode="horizontal" theme="dark" accordion>'
+                '<i-menu id="menu" width="100" mode="horizontal" theme="dark" accordion>'
                 . '<menu-item name="1">page-1</menu-item>'
                 . '<menu-item name="2">&lt;b&gt;page-2&lt;/b&gt;</menu-item>'
                 . '</i-menu>'
-                . '</div>'
             ],
             'Submenu & openNames' => [
                 [
@@ -116,8 +112,7 @@ class MenuTest extends TestCase
                         'id' => 'menu'
                     ]
                 ],
-                '<div id="menu">'
-                . "<i-menu open-names='[2]'>"
+                '<i-menu id="menu" open-names=\'[2]\'>'
                 . '<menu-item name="1">page-1</menu-item>'
                 . '<submenu name="2">'
                 . '<template slot="title">page-2</template>'
@@ -125,7 +120,6 @@ class MenuTest extends TestCase
                 . '<menu-item name="4">page-4</menu-item>'
                 . '</submenu>'
                 . '</i-menu>'
-                . '</div>'
             ]
         ];
     }

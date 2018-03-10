@@ -36,16 +36,28 @@ This widget renders the IView button. [Demo and API](https://www.iviewui.com/com
 
 ```php
 <?php
+
 use antkaz\iview\Button;
+use antkaz\iview\IViewAsset;
+use antkaz\vue\Vue;
+
+IViewAsset::register($this);
 ?>
+
 <div class="iview-button">
-    
+    <?php Vue::begin() ?>
+
+    <?= Button::widget([
+        'label' => 'text'
+    ]) ?>
+
     <?= Button::widget([
         'label' => 'Submit',
         'type' => Button::TYPE_SUCCESS,
         'htmlType' => Button::HTML_TYPE_SUBMIT,
     ]) ?>
 
+    <?php Vue::end() ?>
 </div>
 ```
 
@@ -65,10 +77,17 @@ use antkaz\iview\Button;
 
 ```php
 <?php
+
 use antkaz\iview\Button;
 use antkaz\iview\ButtonGroup;
+use antkaz\iview\IViewAsset;
+use antkaz\vue\Vue;
+
+IViewAsset::register($this);
 ?>
+
 <div class="iview-button-group">
+    <?php Vue::begin() ?>
 
     <?php ButtonGroup::begin([
         'vertical' => true,
@@ -88,5 +107,6 @@ use antkaz\iview\ButtonGroup;
 
     <?php ButtonGroup::end() ?>
 
+    <?php Vue::end() ?>
 </div>
 ```

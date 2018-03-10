@@ -25,28 +25,42 @@
 * `accordion` *(boolean)* - Включить режим аккордеона или нет. Если `true`, только одно подменю можно развернуть одновременно;
 * `width` *(string)* - ширина меню. Работает только если `mode` = `Menu::MODE_VERTICAL`. Рекомендуется использовать `auto`, если в макете используется `Col`. По умолчанию `240px`;
 * `encodeLabel` *(boolean)* - будут ли метки закодирована в HTML;
-* `iViewEvents` *(array)* - события компонента Меню: 
+* `events` *(array)* - события компонента Меню: 
 	* `on-select` - возникает, когда выбирается пункт меню;
 	* `on-open-change` - возникает, когда разворачивается/сворачивается подменю.
 
 ## Пример
+
 ```php
 <?php
 
+use antkaz\iview\IViewAsset;
 use antkaz\iview\Menu;
+use antkaz\vue\Vue;
+use yii\web\JsExpression;
+
+IViewAsset::register($this);
 ?>
+
 <div class="iview-menu">
+    <?php Vue::begin([
+        'clientOptions' => [
+            'methods' => [
+                'select' => new JsExpression("function(name) { console.log('Select item ' + name) }")
+            ]
+        ]
+    ]) ?>
 
     <?= Menu::widget([
-        'items' => $data,
+        'items' => $items,
         'mode' => Menu::MODE_HORIZONTAL,
         'accordion' => true,
         'encodeLabel' => false,
-        'iViewEvents' => [
-            'on-select' => 'function(name) {alert(name)}',
-            'on-open-change' => 'function(name) {alert(name)}'
+        'events' => [
+            'on-select' => 'select'
         ]
     ]); ?>
 
+    <?php Vue::end() ?>
 </div>
 ```

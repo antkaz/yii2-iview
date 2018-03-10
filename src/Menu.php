@@ -93,8 +93,10 @@ class Menu extends Widget
      *
      * @throws InvalidConfigException
      */
-    protected function initComponentProps()
+    protected function initOptions()
     {
+        parent::initOptions();
+
         if (
             $this->theme === self::THEME_PRIMARY
             && $this->mode !== self::MODE_HORIZONTAL
@@ -103,32 +105,33 @@ class Menu extends Widget
         }
 
         if (is_array($this->openNames)) {
-            $this->componentProps['open-names'] = $this->openNames;
+            $this->options['open-names'] = $this->openNames;
         }
 
-        $this->componentProps['width'] = $this->width;
-        $this->componentProps['mode'] = $this->mode;
-        $this->componentProps['theme'] = $this->theme;
-        $this->componentProps['accordion'] = $this->accordion ? true : null;
+        $this->options['width'] = $this->width;
+        $this->options['mode'] = $this->mode;
+        $this->options['theme'] = $this->theme;
+        $this->options['accordion'] = $this->accordion ? true : null;
     }
 
     /**
      * Renders Menu component.
      *
      * @return string
+     * @throws \yii\base\InvalidConfigException
      */
     protected function renderWidget()
     {
-        $menu = $this->renderItems($this->items);
-        return Html::tag('div', $menu, $this->options);
+        return $this->renderItems($this->items);
     }
 
     /**
      * Renders menu items.
      *
      * @param array $items List of items in the menu component.
+     *
      * @return string The rendering result.
-     * @throws InvalidConfigException
+     * @throws \yii\base\InvalidConfigException
      */
     protected function renderItems($items = [])
     {
@@ -145,17 +148,18 @@ class Menu extends Widget
             }
         }
 
-        $this->componentProps['active-name'] = $this->activeName ?: null;
+        $this->options['active-name'] = $this->activeName ?: null;
 
-        return Html::tag('i-menu', implode(PHP_EOL, $menuItems), $this->componentProps);
+        return Html::tag('i-menu', implode(PHP_EOL, $menuItems), $this->options);
     }
 
     /**
      * Renders the submenu items.
      *
      * @param $item menu item containing submenu items.
+     *
      * @return string The rendering result.
-     * @throws InvalidConfigException
+     * @throws \yii\base\InvalidConfigException
      */
     protected function renderSubmenu($item)
     {
@@ -179,7 +183,7 @@ class Menu extends Widget
      * @param $item Menu item.
      * @param bool $slot Renders menu item as slot.
      * @return string The rendering result.
-     * @throws InvalidConfigException
+     * @throws \yii\base\InvalidConfigException
      */
     protected function renderItem($item, $slot = false)
     {

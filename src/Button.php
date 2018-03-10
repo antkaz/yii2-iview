@@ -7,7 +7,6 @@
 
 namespace antkaz\iview;
 
-use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 
 /**
@@ -105,6 +104,23 @@ class Button extends Widget
     public $icon;
 
     /**
+     * @inheritdoc
+     */
+    protected function initOptions()
+    {
+        parent::initOptions();
+
+        $this->options['type'] = $this->type;
+        $this->options['size'] = $this->size;
+        $this->options['shape'] = $this->shape;
+        $this->options['long'] = $this->long ? true : null;
+        $this->options['html-type'] = $this->htmlType;
+        $this->options['disabled'] = $this->disabled ? true : null;
+        $this->options['loading'] = $this->loading ? true : null;
+        $this->options['icon'] = $this->icon;
+    }
+
+    /**
      * Prepares text and options and rendered button
      *
      * @return string
@@ -112,23 +128,7 @@ class Button extends Widget
     protected function renderWidget()
     {
         $text = $this->encodeLabel ? Html::encode($this->label) : $this->label;
-        $options = ArrayHelper::merge($this->options, $this->componentProps);
 
-        return Html::tag('i-button', $text, $options);
-    }
-
-    /**
-     * Initializes component properties
-     */
-    protected function initComponentProps()
-    {
-        $this->componentProps['type'] = $this->type;
-        $this->componentProps['size'] = $this->size;
-        $this->componentProps['shape'] = $this->shape;
-        $this->componentProps['long'] = $this->long ? true : null;
-        $this->componentProps['html-type'] = $this->htmlType;
-        $this->componentProps['disabled'] = $this->disabled ? true : null;
-        $this->componentProps['loading'] = $this->loading ? true : null;
-        $this->componentProps['icon'] = $this->icon;
+        return Html::tag('i-button', $text, $this->options);
     }
 }

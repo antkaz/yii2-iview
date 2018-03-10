@@ -7,7 +7,6 @@
 
 namespace antkaz\iview;
 
-use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 
 /**
@@ -56,18 +55,20 @@ class Alert extends Widget
     /**
      * @inheritdoc
      */
-    protected function initComponentProps()
+    protected function initOptions()
     {
+        parent::initOptions();
+
         if ($this->type) {
-            $this->componentProps['type'] = $this->type;
+            $this->options['type'] = $this->type;
         }
 
         if ($this->showIcon) {
-            $this->componentProps['show-icon'] = true;
+            $this->options['show-icon'] = true;
         }
 
         if ($this->closable) {
-            $this->componentProps['closable'] = true;
+            $this->options['closable'] = true;
         }
     }
 
@@ -109,7 +110,6 @@ class Alert extends Widget
             $body .= Html::tag('span', $this->slot['close'], ['slot' => 'close']);
         }
 
-        $options = ArrayHelper::merge($this->options, $this->componentProps);
-        return Html::tag('alert', $body, $options);
+        return Html::tag('alert', $body, $this->options);
     }
 }

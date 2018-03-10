@@ -5,7 +5,7 @@
  * @license https://github.com/antkaz/yii2-iview/blob/master/LICENSE
  */
 
-namespace antkaz\iview\assets;
+namespace antkaz\iview;
 
 
 use yii;
@@ -54,7 +54,7 @@ class IViewAsset extends AssetBundle
      * @inheritdoc
      */
     public $depends = [
-        'antkaz\iview\assets\VueAsset',
+        'antkaz\vue\VueAsset',
     ];
 
     /**
@@ -65,6 +65,8 @@ class IViewAsset extends AssetBundle
 
     /**
      * @inheritdoc
+     *
+     * @throws \yii\base\InvalidArgumentException
      */
     public function init()
     {
@@ -75,10 +77,12 @@ class IViewAsset extends AssetBundle
 
     /**
      * @inheritdoc
+     *
+     * @throws \yii\base\InvalidArgumentException
      */
     public function registerAssetFiles($view)
     {
-        $language = $this->language ? $this->language : Yii::$app->language;
+        $language = $this->language ?: Yii::$app->language;
         $this->registerLanguage($language);
 
         parent::registerAssetFiles($view);
@@ -88,6 +92,7 @@ class IViewAsset extends AssetBundle
      * Registers a language file if it exist
      *
      * @param string $language The locale ID
+     * @throws \yii\base\InvalidArgumentException
      */
     private function registerLanguage($language)
     {

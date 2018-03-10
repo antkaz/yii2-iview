@@ -26,28 +26,42 @@ Each array element represents a single menu item which can be either a string or
 * `width` *(string)* - the width of the navigation menu. It only works when `mode` = `Menu::MODE_VERTICAL`.
 We recommend you to set it to `auto` if you're using layouts like `Col`
 * `encodeLabel` *(boolean)* - whether the nav items labels should be HTML-encoded;
-* `iViewEvents` *(array)* - the Menu component events: 
+* `events` *(array)* - the Menu component events: 
 	* `on-select` - Emit when select(click) the menu-item;
 	* `on-open-change` - Emit when expand / fold the Submenu.
 
 ## Example
+
 ```php
 <?php
 
+use antkaz\iview\IViewAsset;
 use antkaz\iview\Menu;
+use antkaz\vue\Vue;
+use yii\web\JsExpression;
+
+IViewAsset::register($this);
 ?>
+
 <div class="iview-menu">
+    <?php Vue::begin([
+        'clientOptions' => [
+            'methods' => [
+                'select' => new JsExpression("function(name) { console.log('Select item ' + name) }")
+            ]
+        ]
+    ]) ?>
 
     <?= Menu::widget([
-        'items' => $data,
+        'items' => $items,
         'mode' => Menu::MODE_HORIZONTAL,
         'accordion' => true,
         'encodeLabel' => false,
-        'iViewEvents' => [
-            'on-select' => 'function(name) {alert(name)}',
-            'on-open-change' => 'function(name) {alert(name)}'
+        'events' => [
+            'on-select' => 'select'
         ]
     ]); ?>
 
+    <?php Vue::end() ?>
 </div>
 ```

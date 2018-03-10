@@ -16,16 +16,30 @@ Renders the IView Alert. [Demo and API](https://www.iviewui.com/components/alert
     * `'icon'` *(string)* - customized icon content;
     * `'desc'` *(string)* - alert assistant text description;
     * `'close'` *(string)* - customized close content;
-* `iViewEvent` *(array)* - the Alert component events:
+* `events` *(array)* - the Alert component events:
     * `on-close` - emit when close the alert.
 
 ## Example
 
 ```php
 <?php
+
 use antkaz\iview\Alert;
+use antkaz\iview\IViewAsset;
+use antkaz\vue\Vue;
+use yii\web\JsExpression;
+
+IViewAsset::register($this);
 ?>
+
 <div class="iview-alert">
+    <?php Vue::begin([
+        'clientOptions' => [
+            'methods' => [
+                'log' => new JsExpression("function() { console.log('Close alert') }")
+            ]
+        ]
+    ]) ?>
 
     <?= Alert::widget([
         'body' => 'Title',
@@ -37,27 +51,41 @@ use antkaz\iview\Alert;
             'desc' => 'Alert description',
             'close' => 'close'
         ],
-        'iViewEvents' => [
-            'on-close' => '(event) => {console.log(event);}'
-        ]
+        'events' => [
+           'on-close' => 'log'
+        ],
     ]) ?>
 
+    <?php Vue::end() ?>
 </div>
 ```
+
 You can wrap content between calls `begin()` and `end()` as shown in the following example:
 
 ```php
 <?php
+
 use antkaz\iview\Alert;
+use antkaz\iview\IViewAsset;
+use antkaz\vue\Vue;
+
+IViewAsset::register($this);
 ?>
-<div class="iview-card">
+
+<div class="iview-alert">
+    <?php Vue::begin() ?>
 
     <?php Alert::begin([
         'type' => Alert::TYPE_SUCCESS,
         'showIcon' => true,
         'closable' => true,
     ]) ?>
-        <p slot="title">Alert content</p>
-    <?php Aleert::end() ?>
 
+    An info prompt
+    <template slot="desc">Content of prompt. Content of prompt. Content of prompt. Content of prompt.</template>
+
+    <?php Alert::end() ?>
+
+    <?php Vue::end() ?>
 </div>
+```

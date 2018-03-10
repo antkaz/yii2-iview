@@ -20,23 +20,30 @@ Default `true`;
 
 ```php
 <?php
+
 use antkaz\iview\Card;
+use antkaz\iview\IViewAsset;
+use antkaz\vue\Vue;
+
+IViewAsset::register($this);
+
 ?>
 <div class="iview-card">
+    <?php Vue::begin() ?>
 
     <?= Card::widget([
         'title' => 'Card title',
-        'bordered' => false,
         'extra' => [
             'tag' => 'a',
             'content' => 'Extra',
             'options' => [
-                '@click.prevent' => 'change' 
+                '@click.prevent' => 'change'
             ]
         ],
         'body' => 'Text card'
     ]) ?>
 
+    <?php Vue::end() ?>
 </div>
 ```
 
@@ -44,16 +51,26 @@ You can wrap content between calls `begin()` and `end()` as shown in the followi
 
 ```php
 <?php
+
 use antkaz\iview\Card;
+use antkaz\iview\IViewAsset;
+use antkaz\vue\Vue;
+
+IViewAsset::register($this);
+
 ?>
 <div class="iview-card">
+    <?php Vue::begin() ?>
 
     <?php Card::begin([
         'shadow' => true
     ]) ?>
-        <p slot="title">Card title</p>
-        <p>Content card.</p>
+
+    <p slot="title">Card title</p>
+    <p>Content card.</p>
+
     <?php Card::end() ?>
 
+    <?php Vue::end() ?>
 </div>
 ```
