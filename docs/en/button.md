@@ -31,6 +31,8 @@ This widget renders the IView button. [Demo and API](https://www.iviewui.com/com
 * `disabled` *(bool)* - disable the button. Default `false`;
 * `loading` *(bool)* - set the button to loading status. Default `false`;
 * `icon` *(string)* - set the icons used in the button. The list of icons can be viewed [here](https://www.iviewui.com/components/icon-en).
+* `events` *(array)* - button events:
+    * `click` - Callback when clicking button.
 
 ### Example
 
