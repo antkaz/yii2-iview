@@ -9,7 +9,7 @@ Renders the IView Alert. [Demo and API](https://www.iviewui.com/components/alert
     * `Alert::TYPE_INFO` or `'info'` (default);
     * `Alert::TYPE_SUCCESS` or `'success'`;
     * `Alert::TYPE_WARNING` or `'warning'`;
-    * `Alert::TYPE_ERRor` or `'error'`;
+    * `Alert::TYPE_ERROR` or `'error'`;
 * `showIcon` *(bool)* - show Icon or not. Default `false`;
 * `closable` *(bool)* - closable or not. Default `false`;
 * `slot` *(array)* - Alert slot:

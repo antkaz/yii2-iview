@@ -9,7 +9,7 @@
     * `Alert::TYPE_INFO` или `'info'` (по умолчанию);
     * `Alert::TYPE_SUCCESS` или `'success'`;
     * `Alert::TYPE_WARNING` или `'warning'`;
-    * `Alert::TYPE_ERRили` или `'errили'`;
+    * `Alert::TYPE_ERROR` или `'error'`;
 * `showIcon` *(bool)* - будет показывать иконку или нет. По умолчанию `false`;
 * `closable` *(bool)* - будет показывать кнопку закрытия или нет. По умолчанию `false`;
 * `slot` *(array)* - слот алерта:
