@@ -14,4 +14,5 @@
 * [Alert](alert.md)
 * [Card](card.md)
 * [Modal](modal.md)
+* [Progress](progress.md)
 * [Menu](menu.md)
