@@ -10,6 +10,14 @@ namespace antkaz\iview;
 use yii\base\InvalidConfigException;
 use yii\helpers\Html;
 
+/**
+ * Renders the Modal component
+ *
+ * @see https://www.iviewui.com/components/modal-en
+ *
+ * @author Anton Kazarinov <askazarinov@gmail.com>
+ * @package antkaz\iview
+ */
 class Modal extends Widget
 {
     /**
