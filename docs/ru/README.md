@@ -15,4 +15,5 @@
 * [Card](card.md)
 * [Modal](modal.md)
 * [Progress](progress.md)
+* [Avatar](avatar.md)
 * [Menu](menu.md)

@@ -15,4 +15,5 @@ It allows you to use the components of the IView library in your application.
 * [Card](card.md)
 * [Modal](modal.md)
 * [Progress](progress.md)
+* [Avatar](avatar.md)
 * [Menu](menu.md)
