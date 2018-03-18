@@ -16,4 +16,5 @@
 * [Modal](modal.md)
 * [Progress](progress.md)
 * [Avatar](avatar.md)
+* [Badge](badge.md)
 * [Menu](menu.md)
