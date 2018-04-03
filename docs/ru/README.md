@@ -18,4 +18,5 @@
 * [Avatar](avatar.md)
 * [Badge](badge.md)
 * [Collapse](collapse.md)
+* [Timeline](timeline.md)
 * [Menu](menu.md)
