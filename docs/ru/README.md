@@ -19,4 +19,5 @@
 * [Badge](badge.md)
 * [Collapse](collapse.md)
 * [Timeline](timeline.md)
+* [Tag](tag.md)
 * [Menu](menu.md)
