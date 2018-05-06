@@ -111,5 +111,4 @@ class AlertTest extends TestCase
             ],
         ];
     }
-
 }

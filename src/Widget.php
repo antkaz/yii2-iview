@@ -9,7 +9,6 @@ namespace antkaz\iview;
 
 use Yii;
 use yii\base\InvalidConfigException;
-use yii\base\Widget as YiiWidget;
 use yii\web\View;
 
 /**
@@ -18,7 +17,7 @@ use yii\web\View;
  * @author Anton Kazarinov <askazarinov@gmail.com>
  * @package antkaz\iview
  */
-abstract class Widget extends YiiWidget
+abstract class Widget extends \yii\base\Widget
 {
     /**
      * @var array The IView component properties.
@@ -43,7 +42,7 @@ abstract class Widget extends YiiWidget
     /**
      * @var string Current contents of the buffer
      */
-    protected $content;
+    protected $wrapperContent;
 
     /**
      * Initializes the component.
@@ -130,7 +129,7 @@ abstract class Widget extends YiiWidget
      */
     final public function run()
     {
-        $this->content = ob_get_clean();
+        $this->wrapperContent = ob_get_clean();
 
         return $this->renderWidget();
     }

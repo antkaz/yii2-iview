@@ -75,8 +75,8 @@ class Progress extends Widget
      */
     protected function renderWidget()
     {
-        if ($this->content) {
-            $this->body .= $this->content;
+        if ($this->wrapperContent) {
+            $this->body .= $this->wrapperContent;
         }
         return Html::tag('i-progress', $this->body, $this->options);
     }

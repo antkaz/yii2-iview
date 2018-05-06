@@ -68,8 +68,8 @@ class Badge extends Widget
      */
     protected function renderWidget()
     {
-        if ($this->content) {
-            $this->body .= $this->content;
+        if ($this->wrapperContent) {
+            $this->body .= $this->wrapperContent;
         }
 
         return Html::tag('badge', $this->body, $this->options);

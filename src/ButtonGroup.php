@@ -68,6 +68,6 @@ class ButtonGroup extends Widget
 
     protected function renderWidget()
     {
-        return Html::tag('button-group', $this->content, $this->options);
+        return Html::tag('button-group', $this->wrapperContent, $this->options);
     }
 }
