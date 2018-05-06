@@ -21,10 +21,15 @@
   "require": {
     "yiisoft/yii2": "~2.0.14",
     "antkaz/yii2-vue": "~1.0",
-    "npm-asset/iview": "^2.8.0"
+    "npm-asset/iview": "~2.12.0"
   },
   "require-dev": {
     "phpunit/phpunit": "^5"
+  },
+  "config": {
+    "fxp-asset": {
+      "enabled": false
+    }
   },
   "repositories": [
     {
