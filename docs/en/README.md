@@ -20,4 +20,5 @@ It allows you to use the components of the IView library in your application.
 * [Collapse](collapse.md)
 * [Timeline](timeline.md)
 * [Tag](tag.md)
+* [Tooltip](tooltip.md)
 * [Menu](menu.md)
