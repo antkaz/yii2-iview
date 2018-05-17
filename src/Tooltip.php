@@ -13,7 +13,7 @@ use yii\helpers\Html;
 /**
  * Renders the Tooltip component
  *
- * @see https://www.iviewui.com/components/modal-en
+ * @see https://www.iviewui.com/components/tooltip-en
  *
  * @author Anton Kazarinov <askazarinov@gmail.com>
  * @package antkaz\iview

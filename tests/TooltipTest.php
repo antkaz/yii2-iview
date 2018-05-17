@@ -25,9 +25,9 @@ class TooltipTest extends TestCase
      */
     public function testTooltipOptions($config, $expected)
     {
-        $alert = Tooltip::widget($config);
+        $tooltip = Tooltip::widget($config);
 
-        $this->assertEqualsWithoutLE($expected, $alert);
+        $this->assertEqualsWithoutLE($expected, $tooltip);
     }
 
     /**

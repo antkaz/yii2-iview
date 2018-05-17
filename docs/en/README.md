@@ -21,4 +21,5 @@ It allows you to use the components of the IView library in your application.
 * [Timeline](timeline.md)
 * [Tag](tag.md)
 * [Tooltip](tooltip.md)
+* [Poptip](poptip.md)
 * [Menu](menu.md)
