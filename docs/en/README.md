@@ -22,4 +22,5 @@ It allows you to use the components of the IView library in your application.
 * [Tag](tag.md)
 * [Tooltip](tooltip.md)
 * [Poptip](poptip.md)
+* [Carousel](carousel.md)
 * [Menu](menu.md)

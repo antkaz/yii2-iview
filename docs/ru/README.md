@@ -22,4 +22,5 @@
 * [Tag](tag.md)
 * [Tooltip](tooltip.md)
 * [Poptip](poptip.md)
+* [Сфкщгыуд](carousel.md)
 * [Menu](menu.md)
