@@ -10,7 +10,12 @@ It allows you to use the components of the IView library in your application.
 
 ## Components
 
+### Basic
+
 * [Button](button.md)
+
+### View
+
 * [Alert](alert.md)
 * [Card](card.md)
 * [Modal](modal.md)
@@ -24,4 +29,8 @@ It allows you to use the components of the IView library in your application.
 * [Poptip](poptip.md)
 * [Carousel](carousel.md)
 * [Tree](tree.md)
+
+### Navigation
+
 * [Menu](menu.md)
+* [Tabs](tabs.md)

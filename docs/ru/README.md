@@ -10,7 +10,12 @@
 
 ## Компоненты
 
+### Иазовые
+
 * [Button](button.md)
+
+### Представление
+
 * [Alert](alert.md)
 * [Card](card.md)
 * [Modal](modal.md)
@@ -24,4 +29,8 @@
 * [Poptip](poptip.md)
 * [Carousel](carousel.md)
 * [Tree](tree.md)
+
+### Навигация
+
 * [Menu](menu.md)
+* [Tabs](tabs.md)
